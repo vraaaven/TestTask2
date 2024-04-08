@@ -39,7 +39,6 @@
         width: 90%;
     }
     .feedback {
-        max-width: 375px;
         padding: 100px 30px;
         justify-content: flex-start;
     }
