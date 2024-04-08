@@ -85,6 +85,10 @@
     .header-side__top {
         display: none;
     }
+    .header-nav__list-item a
+    {
+        font-size: 50px;
+    }
     .header-nav {
         display: flex;
         flex-direction: column;

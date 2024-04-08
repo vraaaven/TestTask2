@@ -12,15 +12,11 @@ $(document).ready(function () {
                 if (result.status == 'success') {
                     console.log(result)
                     $('.feedback').append('<div class="feedback__message-sended">' +
-                       '<table>' +
-                        '<tr><th>ФИО</th> <th>Адрес</th> <th>Телефон</th> <th>email</th></tr>'+
-                            '<tr>' +
-                                '<td>'+result.data.name +'</td>' +
-                                '<td>'+result.data.address +'</td>' +
-                                '<td>'+result.data.email +'</td>' +
-                                '<td>'+result.data.phone +'</td>' +
-                           '</tr>' +
-                        '</table></div>'
+                        '<div class="feedback__message-field">ФИО: ' + result.data.name + '</div>' +
+                        '<div class="feedback__message-field"> Адрес: ' + result.data.address + '</div>' +
+                        '<div class="feedback__message-field"> email: ' + result.data.email + '</div>' +
+                        '<div class="feedback__message-field"> Телефон: ' + result.data.phone + '</div>' +
+                        '</div>'
                     );
                 }
                 if (result.status == 'error') {
