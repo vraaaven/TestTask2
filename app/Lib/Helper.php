@@ -33,6 +33,11 @@ class Helper
         $year = date('Y', $timestamp) != date('Y') ? date('Y', $timestamp) : "";
         return date('d', $timestamp) . ' ' . $month[date('n', $timestamp)] . ' ' . $year;
     }
+    public static function extractSentences($text, $numSentences) {
+        $sentences = preg_split('/(?<=[.?!])\s+/', $text, -1, PREG_SPLIT_NO_EMPTY);
+        $extractedSentences = array_slice($sentences, 0, $numSentences);
+        return implode(' ', $extractedSentences);
+    }
 
     public static function closeWithError(string $str): void
     {

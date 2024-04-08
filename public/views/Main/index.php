@@ -8,8 +8,9 @@ require_once('public/views/layouts/header.php'); ?>
     <div class="main__news-list">
         <?php foreach ($posts as $post) : ?>
             <a href="/detail/<?= $post->getField('id') ?>" class="main__news-item">
-                <div class="posts-list__title"><?= $post->getField('announce') ?></div>
-                <time class="posts-list__date"><?= \App\Lib\Helper::formateDate($post->getField('date')) ?></time>
+                <div class="main__item-title"><?= $post->getField('announce') ?></div>
+                <div class="main__item-subtitle"><?= App\Lib\Helper::extractSentences($post->getField('detail_text'),1) ?></div>
+                <time class="main__item-date"><?= \App\Lib\Helper::formateDate($post->getField('date')) ?></time>
             </a>
         <?php endforeach; ?>
     </div>

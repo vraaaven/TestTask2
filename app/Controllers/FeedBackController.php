@@ -9,12 +9,8 @@ class FeedBackController extends Controller
 {
     public function index(): void
     {
-        $posts = Post::getList(1, 3);
-        $vars = [
-            "posts" => $posts,
-            'count' => Post::getCount(),
-        ];
-        $this->view->render($vars);
+        $this->view->render();
+        $this->setCookie('id');
     }
     public function send(): void
     {
@@ -23,11 +19,13 @@ class FeedBackController extends Controller
             'address' => htmlspecialchars($_POST['address']),
             'phone' => htmlspecialchars($_POST['phone']),
             'email' => htmlspecialchars($_POST['email']),
+            'session_id' => $_COOKIE['id'],
         ];
         if (FeedBack::addRecord($record)) {
+            $data = FeedBack::getRecord($_COOKIE['id']);
             $result = [
                 'status' => 'success',
-                'data' => $record,
+                'data' => $data,
             ];
         } else {
             $result = ['status' => 'error'];

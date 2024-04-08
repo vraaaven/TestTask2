@@ -10,6 +10,7 @@ require_once('public/views/layouts/header.php'); ?>
         <?php foreach ($posts as $post) : ?>
             <a href="/detail/<?= $post->getField('id') ?>" class="posts-list__card">
                 <div class="posts-list__title"><?= $post->getField('announce') ?></div>
+                <div class="posts-list__subtitle"><?= \App\Lib\Helper::extractSentences($post->getField('detail_text'), 2) ?></div>
                 <time class="posts-list__date"><?= \App\Lib\Helper::formateDate($post->getField('date')) ?></time>
             </a>
         <?php endforeach; ?>

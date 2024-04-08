@@ -65,15 +65,22 @@
     cursor: pointer;
 }
 
-.main-list__title {
-    width: calc(100% - 250px);
+.main__item-title {
+    width: calc(100%);
     margin-bottom: 8px;
     font-size: 30px;
     line-height: 32px;
     letter-spacing: -0.01em;
 }
+.main__item-subtitle {
+    width: calc(100%);
+    margin-bottom: 8px;
+    font-size: 20px;
+    line-height: 32px;
+    letter-spacing: -0.01em;
+}
 
-.main-list__date {
+.main__item-date {
     display: block;
     margin-bottom: 40px;
     font-size: 14px;

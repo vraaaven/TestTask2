@@ -43,7 +43,7 @@ class PostController extends Controller
 
     public function detail(): void
     {
-        $this->setCookie('user_id');
+        $this->setCookie('id');
         $route = $this->route;
         $post = Post::getItem($route["id"]);
         $vars = [
@@ -51,13 +51,4 @@ class PostController extends Controller
         ];
         $this->view->render($vars);
     }
-
-    protected function setCookie(): void
-    {
-        if (!isset($_COOKIE['user_id'])) {
-            $user_id = uniqid();
-            setcookie('user_id', $user_id);
-        }
-    }
-
 }
